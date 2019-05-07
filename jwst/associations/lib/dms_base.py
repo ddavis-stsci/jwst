@@ -3,7 +3,7 @@ from .counter import Counter
 
 from jwst.associations.exceptions import (
     AssociationNotAConstraint,
-    AssociationNotValidError,
+    AssociationNotValidError
 )
 from jwst.associations.lib.acid import ACIDMixin
 from jwst.associations.lib.constraint import (Constraint, AttrConstraint)

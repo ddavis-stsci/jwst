@@ -770,7 +770,7 @@ class AsnMixin_Science(DMS_Level3_Base):
             [
                 Constraint_Base(),
                 DMSAttrConstraint(
-                    sources=['is_imprt', 'bkgdtarg'],
+                    sources=['is_imprt'],
                     force_undefined=True
                 ),
                 Constraint(
