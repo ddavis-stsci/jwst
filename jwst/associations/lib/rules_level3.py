@@ -339,10 +339,6 @@ class Asn_Lv3Spec(AsnMixin_AuxData, AsnMixin_BkgScience):
             Constraint(
                 [
                     Constraint_TSO(),
-                    #DMSAttrConstraint(
-                    #    name='patttype',
-                    #    sources=['patttype'],
-                    #    value=['2_point|4_point_nod|along_slit_nod|extended-source'],)
                 ],
                 reduce=Constraint.notany
             ),
