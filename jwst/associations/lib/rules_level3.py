@@ -321,7 +321,7 @@ class Asn_IFU(AsnMixin_Spectrum):
         return product_name.lower()
 
 @RegistryMarker.rule
-class Asn_Lv3Spec(AsnMixin_BkgScience):
+class Asn_Lv3Spec(AsnMixin_AuxData, AsnMixin_BkgScience):
 
     """Level 3 Spectral Association
 

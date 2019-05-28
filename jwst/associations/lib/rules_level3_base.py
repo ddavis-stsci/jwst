@@ -48,6 +48,7 @@ __all__ = [
     'AsnMixin_Science',
     'AsnMixin_Spectrum',
     'AsnMixin_BkgScience',
+    'AsnMixin_AuxData',
     'Constraint_Base',
     'Constraint_IFU',
     'Constraint_Image',
@@ -896,3 +897,27 @@ class AsnMixin_Spectrum(AsnMixin_Science):
 
         self.data['asn_type'] = 'spec3'
         super(AsnMixin_Spectrum, self)._init_hook(item)
+
+class AsnMixin_AuxData:
+    """Process special and non-science exposures as science.
+    """
+    def get_exposure_type(self, item, default='science'):
+        """Override to force exposure type to always be science
+        Parameters
+        ----------
+        item : dict
+            The pool entry to determine the exposure type of
+        default : str or None
+            The default exposure type.
+            If None, routine will raise LookupError
+        Returns
+        -------
+        exposure_type : 'science'
+            Always returns as science
+        """
+        return 'science'
+    def _init_hook(self, item):
+        """Post-check and pre-add initialization"""
+
+        self.data['asn_type'] = 'spec3'
+        super(AsnMixin_AuxData, self)._init_hook(item)
