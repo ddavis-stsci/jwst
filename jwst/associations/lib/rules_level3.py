@@ -321,7 +321,7 @@ class Asn_IFU(AsnMixin_Spectrum):
         return product_name.lower()
 
 @RegistryMarker.rule
-class Asn_Lv3Spec(AsnMixin_AuxData, AsnMixin_BkgScience):
+class Asn_Lv3Spec(AsnMixin_BkgScience):
 
     """Level 3 Spectral Association
 
@@ -335,7 +335,6 @@ class Asn_Lv3Spec(AsnMixin_AuxData, AsnMixin_BkgScience):
         self.constraints = Constraint([
             Constraint_Target(),
             Constraint_IFU(),
-            #Constraint_AuxData(),
             Constraint(
                 [
                     Constraint_TSO(),
