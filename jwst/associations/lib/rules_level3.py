@@ -351,8 +351,6 @@ class Asn_Lv3Spec(AsnMixin_AuxData, AsnMixin_BkgScience):
                 ],
                 reduce=Constraint.any
             ),
-
-
             ])
 
         # Check and continue initialization.
