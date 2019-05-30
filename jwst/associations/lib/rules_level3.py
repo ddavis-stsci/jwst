@@ -539,3 +539,31 @@ class Asn_ACQ_Reprocess(DMS_Level3_Base):
         ])
 
         super(Asn_ACQ_Reprocess, self).__init__(*args, **kwargs)
+
+@RegistryMarker.rule
+class Asn_Lv3SpecSpecial(
+        AsnMixin_Lv3Special,
+        AsnMixin_Spectral,
+        DMS_Level3_Base
+):
+    """Level3 Auxiliary Science Spectral Association
+
+    Characteristics:
+        - Association type: ``spec3``
+        - Pipeline: ``calwebb_spec3``
+        - Spectral-based science exposures that are dedicated background targets
+    """
+
+    def __init__(self, *args, **kwargs):
+
+        # Setup constraints
+        self.constraints = Constraint([
+            Constraint_Base(),
+            Constraint_Mode(),
+            Constraint_Spectral_Science(),
+            Constraint_Single_Science(self.has_science),
+            Constraint_Special(),
+        ])
+
+        # Now check and continue initialization.
+        super(Asn_Lv3SpecSpecial, self).__init__(*args, **kwargs)
