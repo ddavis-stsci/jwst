@@ -926,10 +926,11 @@ class Asn_Lv2WFSC(
                 value='.+wfsc.+',
                 force_unique=True
             ),
+            # exclude any NIS EXTCAL files from the associations to prevent
+            # OPS failues
             DMSAttrConstraint(
                 name='nis_extcal',
                 sources=['exp_type'],
-            #    value='nis_extcal',
                 value='((?!nis_extcal).)*',
                 reduce=Constraint.any
             )
