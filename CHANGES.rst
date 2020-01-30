@@ -36,6 +36,13 @@ extract_1d
 - Fixed bug regarding background for NIRSpec or NIRISS (SOSS) point source
   spectra. [#4459]
 
+extract_2d
+----------
+
+- For GRISM data, the variance arrays and INT_TIMES table are copied to output,
+  and keywords SLTSTRT1 and SLTSTRT2 are set to the pixel location of the
+  cutout in the input file. [#4504]
+
 master_background
 -----------------
 
@@ -58,6 +65,10 @@ pipeline
 - Fixed error in formatting of example ASN file contents in the documents for
   the ``calwebb_coron3`` and ``calwebb_ami3`` pipelines. [#4496]
 
+- Fixed the ``calwebb_tso3`` calculation of the number_of_integrations recorded
+  in the photometric table product to avoid ``astropy.table`` merge conflicts.
+  [#4502]
+
 set_telescope_pointing
 ----------------------
 
@@ -67,12 +78,6 @@ stpipe
 ------
 
 - Fix sub-step nesting in parameter reference files [#4488]
-
-transforms
-----------
-
-- Removed ``TPCorr`` WCS correction model as it is now defined in ``tweakwcs``
-  as a compound model of elementary ``astropy`` and ``gwcs`` models. [#4491]
 
 tweakreg
 --------
