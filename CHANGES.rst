@@ -9,6 +9,8 @@ associations
 combine_1d
 ----------
 
+- Remove the temporary cast to float64 #4505
+
 - Check output pixel numbers for NaN [#4409]
 
 datamodels
